@@ -31,7 +31,7 @@ const About = () => {
         </p>
         <p className="about-text">
           I specialize in <span className="highlight">React.js</span>,
-          JavaScript, and UI/UX design. My goal is to build beautiful and
+          JavaScript, CSS and HTML . My goal is to build beautiful and
           user-friendly applications that provide an excellent user experience.
         </p>
         <a href="/resume.pdf" download className="btn">

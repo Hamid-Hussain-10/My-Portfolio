@@ -1,32 +1,50 @@
 import { motion } from "framer-motion";
 import profilePic from "/profile1.png";
+import { FaWhatsapp } from "react-icons/fa";
 import "./Home.css";
 
 const Home = () => {
   return (
     <>
-      <header className="header">
-        <div className="logo">Hamid Hussain</div>
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#skills">Skills</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li> 
-          </ul>
-        </nav>
-      </header>
+
+    <header className="header">
+      <div className="logo">
+        <b>Hamid</b> <span>Hussain</span>
+      </div>
+      <nav>
+        <ul className="nav-links">
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a
+        href="https://wa.me/923433563121"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-icon"
+      >
+        <FaWhatsapp />
+      </a>
+    </header>
+
+
+
+
+
 
       <section className="home-container" id="home">
         <div className="content">

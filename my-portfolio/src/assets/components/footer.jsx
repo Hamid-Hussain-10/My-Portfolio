@@ -3,13 +3,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <motion.footer
-      className="footer"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.4 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
+    <motion.footer className="footer">
       <motion.div
         className="footer-content"
         initial={{ opacity: 0, y: -30 }}
@@ -61,7 +55,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
         >
-          © {new Date().getFullYear()} Hamid Hussain | All Rights Reserved.
+          © {new Date().getFullYear()} Hamid Hussain || All Rights Reserved.
         </motion.p>
       </motion.div>
     </motion.footer>
@@ -69,10 +63,22 @@ const Footer = () => {
 };
 
 const socialLinks = [
-  { name: "GitHub", icon: "code", link: "https://github.com/Hamid-Hussain-10?tab=repositories" },
-  { name: "LinkedIn", icon: "business_center", link: "https://www.linkedin.com/in/hamid-hussain7/" },
+  {
+    name: "GitHub",
+    icon: "code",
+    link: "https://github.com/Hamid-Hussain-10?tab=repositories",
+  },
+  {
+    name: "LinkedIn",
+    icon: "business_center",
+    link: "https://www.linkedin.com/in/hamid-hussain7/",
+  },
   { name: "Email", icon: "mail", link: "mailto:hhdev456@gmail.com" },
-  { name: "Twitter", icon: "chat", link: "https://twitter.com/" },
+  {
+    name: "Whatsapp",
+    icon: "chat",
+    link: "https://wa.me/923433563121"
+  }
 ];
 
 const iconVariants = {

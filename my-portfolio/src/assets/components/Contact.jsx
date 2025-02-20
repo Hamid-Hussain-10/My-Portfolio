@@ -1,34 +1,78 @@
 import { motion } from "framer-motion";
 import "./Contact.css";
-import contactImg from "/contact.png"; 
 
 const Contact = () => {
   return (
     <section className="contact" id="contact">
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
         Contact Me
       </motion.h2>
+
+      {/* Floating Skill Icons */}
+      <FloatingIcons />
+
       <motion.div
         className="contact-container"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5 }}
       >
-        <motion.div
-          className="contact-img-container"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-        >
-          <img src={contactImg} alt="Contact" className="contact-img" />
-        </motion.div>
         <ContactForm />
       </motion.div>
     </section>
+  );
+};
+
+const FloatingIcons = () => {
+  const icons = [
+    "code", 
+    "palette", 
+    "bolt",
+    "javascript",
+    "css", 
+    "hub"
+  ];
+
+  return (
+    <>
+      <div className="floating-icons left">
+        {icons.slice(0, 3).map((icon, index) => (
+          <FloatingIcon key={index} icon={icon} delay={index * 0.5} />
+        ))}
+      </div>
+
+      <div className="floating-icons right">
+        {icons.slice(3).map((icon, index) => (
+          <FloatingIcon key={index} icon={icon} delay={index * 0.5} />
+        ))}
+      </div>
+    </>
+  );
+};
+
+// eslint-disable-next-line react/prop-types
+const FloatingIcon = ({ icon, delay }) => {
+  return (
+    <motion.i
+      className="material-icons floating-icon"
+      initial={{ y: 10 }}
+      animate={{ y: [-10, 10, -10] }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+        delay,
+      }}
+    >
+      {icon}
+    </motion.i>
   );
 };
 
@@ -38,19 +82,20 @@ const ContactForm = () => {
       className="contact-form"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ amount: 0.8 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
-      <motion.div className="input-container" variants={inputVariants}>
-        <input type="text" placeholder="Your Name" required />
-      </motion.div>
-      <motion.div className="input-container" variants={inputVariants}>
-        <input type="email" placeholder="Your Email" required />
-      </motion.div>
-      <motion.div className="input-container" variants={inputVariants}>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-      </motion.div>
+      {formFields.map((field, index) => (
+        <motion.div className="input-container" variants={inputVariants} key={index}>
+          {field.type === "textarea" ? (
+            <textarea placeholder={field.placeholder} rows="5" required></textarea>
+          ) : (
+            <input type={field.type} placeholder={field.placeholder} required />
+          )}
+        </motion.div>
+      ))}
+
       <motion.button
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.1, boxShadow: "0px 0px 15px #ff5733" }}
         whileTap={{ scale: 0.9 }}
         className="submit-btn"
       >
@@ -60,19 +105,18 @@ const ContactForm = () => {
   );
 };
 
+const formFields = [
+  { type: "text", placeholder: "Your Name" },
+  { type: "email", placeholder: "Your Email" },
+  { type: "textarea", placeholder: "Your Message" },
+];
+
 const inputVariants = {
-  offscreen: {
-    y: 50,
-    opacity: 0,
-  },
+  offscreen: { y: 50, opacity: 0 },
   onscreen: {
     y: 0,
     opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
+    transition: { type: "spring", bounce: 0.4, duration: 0.8 },
   },
 };
 

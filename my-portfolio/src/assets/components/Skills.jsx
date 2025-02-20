@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import "./Skills.css";
 
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGithub } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
+
 const skillsData = [
-  { name: "HTML", icon: "code" },
-  { name: "CSS", icon: "palette" },
-  { name: "JavaScript", icon: "bolt" },
-  { name: "React", icon: "hub" },
-  { name: "Tailwind CSS", icon: "style" },
-  // { name: "Framer Motion", icon: "animation" },
-  { name: "Git & GitHub", icon: "terminal" },
-  // { name: "Node.js", icon: "memory" },
+  { name: "HTML", icon: <FaHtml5 /> },
+  { name: "CSS", icon: <FaCss3Alt /> },
+  { name: "JavaScript", icon: <FaJs /> },
+  { name: "React", icon: <FaReact /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  { name: "Git & GitHub", icon: <FaGithub /> },
 ];
+
 
 const Skills = () => {
   return (
@@ -31,15 +33,12 @@ const Skills = () => {
         transition={{ staggerChildren: 0.2 }}
       >
         {skillsData.map((skill, i) => (
-          <motion.div
-            className="skill-card"
-            key={i}
-            variants={cardVariants}
-          >
-            <span className="material-icons skill-icon">{skill.icon}</span>
-            <p className="skill-name">{skill.name}</p>
-          </motion.div>
-        ))}
+  <motion.div className="skill-card" key={i} variants={cardVariants}>
+    <span className="skill-icon">{skill.icon}</span>
+    <p className="skill-name">{skill.name}</p>
+  </motion.div>
+))}
+
       </motion.div>
     </section>
   );
