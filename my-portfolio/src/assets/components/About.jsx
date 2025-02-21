@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutPic from "/about-img.jpg";
+import aboutPic from "/about-img.webp";
 import "./About.css";
 
 const About = () => {

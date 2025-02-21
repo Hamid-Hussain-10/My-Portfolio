@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import profilePic from "/profile1.png";
 import { FaWhatsapp } from "react-icons/fa";
+import profilePic from "/profile1.webp";
 import "./Home.css";
 
 const Home = () => {
@@ -40,11 +40,6 @@ const Home = () => {
         <FaWhatsapp />
       </a>
     </header>
-
-
-
-
-
 
       <section className="home-container" id="home">
         <div className="content">

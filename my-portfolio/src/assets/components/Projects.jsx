@@ -2,37 +2,37 @@ import { motion } from "framer-motion";
 import "./Projects.css";
 
 const projects = [
-    {
-      title: "Kids School Website",
-      link: "https://schoolhhdev.netlify.app/",
-      img: "/school.png",
-     },
-     {
-       title: "Football Club Website",
-       link: "https://fcsadpara.netlify.app/",
-       img: "/football.png",
-     },
-     {
-       title: "Gaming Website",
-       link: "https://gamingwebsitehhdev.netlify.app/",
-       img: "/game.png",
-    },
-     {
-       title: "Shawarma Website",
-       link: "https://shawarmahhdev.netlify.app/",
-       img: "/shawarma.png",
-     },
-     {
-       title: "Grocery food Website",
-       link: "https://shawarmahhdev.netlify.app/",
-       img: "/food.png",
-     },
-     {
-       title: "Juice Website",
-       link: "https://shawarmahhdev.netlify.app/",
-       img: "/juice.png",
-   },
-   ];
+  {
+    title: "Kids School Website",
+    link: "https://schoolhhdev.netlify.app/",
+    img: "/school.webp",
+  },
+  {
+    title: "Football Club Website",
+    link: "https://fcsadpara.netlify.app/",
+    img: "/football.webp",
+  },
+  {
+    title: "Gaming Website",
+    link: "https://gamingwebsitehhdev.netlify.app/",
+    img: "/game.webp",
+  },
+  {
+    title: "Shawarma Website",
+    link: "https://shawarmahhdev.netlify.app/",
+    img: "/shawarma.webp",
+  },
+  {
+    title: "Grocery Food Website",
+    link: "https://shawarmahhdev.netlify.app/",
+    img: "/food.webp",
+  },
+  {
+    title: "Juice Website",
+    link: "https://shawarmahhdev.netlify.app/",
+    img: "/juice.webp",
+  },
+];
 
 const Projects = () => {
   return (
@@ -58,13 +58,19 @@ const Projects = () => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="project-card"  
+            className="project-card"
             key={i}
             variants={cardVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={project.img} alt={project.name} className="project-img" />
+            {/* Lazy loading added for images */}
+            <img
+              src={project.img}
+              alt={project.title}
+              className="project-img"
+              loading="lazy" // Lazy loading enabled
+            />
             <div className="project-info">
               <h3>{project.title}</h3>
             </div>

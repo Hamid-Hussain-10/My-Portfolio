@@ -74,7 +74,7 @@
 
 .submit-btn {
   width: 50%;
-  padding: 12px;
+  padding: 10px;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -118,5 +118,11 @@
   .contact-container {
     flex-direction: column;
     gap: 30px;
+  }
+
+  .submit-btn {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
   }
 }
